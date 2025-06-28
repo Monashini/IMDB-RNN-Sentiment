@@ -1,4 +1,5 @@
 
+
 ````markdown
 ## 🔧 Work Done
 
@@ -45,6 +46,7 @@ Used `Sequential()` model with:
 ---
 
 ### 🎯 5. Compilation
+
 ```python
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 ````
@@ -55,7 +57,7 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 
 * Trained on padded reviews
 * Used `validation_split=0.2` to evaluate on unseen data
-* Added `EarlyStopping` callback:
+* Added `EarlyStopping` callback with:
 
   * `monitor='val_loss'`
   * `patience=5`
@@ -89,5 +91,9 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 
 ## 👩‍💻 Author
 
-**Monashini S** 
-GitHub: [@Monashini](https://github.com/Monashini) 
+**Monashini S**
+GitHub: [@Monashini](https://github.com/Monashini)
+
+```
+
+```
