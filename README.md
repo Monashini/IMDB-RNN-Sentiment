@@ -67,9 +67,11 @@ Used the following settings:
 * Created a `requirements.txt` for deployment
 * Uploaded the project to GitHub and deployed it on Streamlit Cloud
 
-snapshot :
 
-![App Screenshot](https://github.com/Monashini/IMDB-RNN-Sentiment/blob/main/Screenshot%202025-06-28%20at%203.57.46%20PM.png?raw=true)
+##snapshot :
+
+
+![App Screenshot](https://github.com/Monashini/IMDB-RNN-Sentiment/blob/main/Screenshot%202025-06-28%20at%203.51.51%20PM.png?raw=true)
 
 
 **Author**
