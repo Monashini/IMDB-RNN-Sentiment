@@ -1,99 +1,81 @@
 
-
-````markdown
-## 🔧 Work Done
+**Work Done**
 
 This project was built from scratch using the IMDB movie reviews dataset provided by Keras. Here's an overview of all the steps involved:
 
----
+**1. Load Dataset**
 
-### 📥 1. Load Dataset
-- Used Keras' `imdb.load_data()` to load 25,000 training and 25,000 test reviews.
-- Each review is a sequence of integers (word indices).
+* Used Keras' `imdb.load_data()` to load 25,000 training and 25,000 test reviews.
+* Each review is a sequence of integers (word indices).
 
----
+**2. Word Index Preparation**
 
-### 🔤 2. Word Index Preparation
-- Loaded word-index mapping via `imdb.get_word_index()`.
-- Created a `reverse_word_index` dictionary to decode integer sequences back into words.
-- Reserved:
-  - `0` for padding  
-  - `1` for start  
-  - `2` for unknown words
+* Loaded word-index mapping via `imdb.get_word_index()`.
+* Created a `reverse_word_index` dictionary to decode integer sequences back into words.
+* Reserved:
 
----
+  * 0 for padding
+  * 1 for start
+  * 2 for unknown words
 
-### 🧼 3. Preprocessing
-- Defined a `preprocess_text()` function:
-  - Converts user text to lowercase
-  - Tokenizes into word indices
-  - Adds start token (`1`)
-  - Unknown words mapped to `2`
-  - Final sequence padded to 500 words using `sequence.pad_sequences()`
+**3. Preprocessing**
 
----
+* Defined a `preprocess_text()` function that:
 
-### 🏗 4. Model Architecture
-Used `Sequential()` model with:
+  * Converts user text to lowercase
+  * Tokenizes it into word indices
+  * Adds start token (1)
+  * Maps unknown words to 2
+  * Pads the sequence to 500 words using `sequence.pad_sequences()`
 
-- `Embedding(10000, 128, input_length=500)`  
-  → Transforms word indices into dense 128-d vectors  
-- `SimpleRNN(128)`  
-  → Learns temporal dependencies  
-- `Dense(1, activation='sigmoid')`  
-  → Outputs sentiment (positive/negative)
+**4. Model Architecture**
 
----
+* Built a Sequential model with the following layers:
 
-### 🎯 5. Compilation
+  * `Embedding(10000, 128, input_length=500)` to turn word indices into dense 128-dimensional vectors
+  * `SimpleRNN(128)` to learn temporal patterns
+  * `Dense(1, activation='sigmoid')` to predict the sentiment score
 
-```python
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-````
+**5. Compilation**
+Used the following settings:
+`model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])`
 
----
+**6. Training**
 
-### 🧪 6. Training
+* Trained the model on the padded review data
+* Used `validation_split=0.2` to evaluate on unseen validation data
+* Added early stopping with:
 
-* Trained on padded reviews
-* Used `validation_split=0.2` to evaluate on unseen data
-* Added `EarlyStopping` callback with:
+  * monitor set to `'val_loss'`
+  * patience of 5
+  * restoring best weights
 
-  * `monitor='val_loss'`
-  * `patience=5`
-  * `restore_best_weights=True`
+**7. Model Saving**
 
----
+* Saved the trained model as `simple_rnn_imdb.h5` for future inference use
 
-### 💾 7. Model Saving
+**8. Prediction Functions**
 
-* Saved trained model as `simple_rnn_imdb.h5` for future use
+* `decode_review(encoded)` function to convert numeric input back to text
+* `predict_sentiment(text)` function to predict whether a user review is positive or negative
 
----
+**9. Streamlit Deployment**
 
-### 📊 8. Prediction Functions
+* Built a simple Streamlit app for user interaction
+* Users can enter a review in the text input field
+* The model returns the predicted sentiment in real-time
+* Created a `requirements.txt` for deployment
+* Uploaded the project to GitHub and deployed it on Streamlit Cloud
 
-* `decode_review(encoded)` → Converts numeric review back to text
-* `predict_sentiment(text)` → Predicts sentiment from raw user input (positive or negative)
+snapshot :
 
----
+![App Screenshot](https://github.com/Monashini/IMDB-RNN-Sentiment/blob/main/Screenshot%202025-06-28%20at%203.57.46%20PM.png?raw=true)
 
-### 🌐 9. Streamlit Deployment
 
-* Built an interactive UI using Streamlit:
+**Author**
 
-  * User types a review
-  * Model predicts and displays sentiment
-* Added `requirements.txt` for deployment
-* Uploaded to GitHub and deployed on Streamlit Cloud
+Monashini S
+GitHub: [https://github.com/Monashini](https://github.com/Monashini)
 
 ---
 
-## 👩‍💻 Author
-
-**Monashini S**
-GitHub: [@Monashini](https://github.com/Monashini)
-
-```
-
-```
