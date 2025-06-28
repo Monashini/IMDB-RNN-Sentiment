@@ -1,8 +1,3 @@
-Got it, Mona! Here's a refined `README.md` section specifically highlighting **the complete work you’ve done** — including **data loading, preprocessing, training, testing, saving, and deployment**.
-
-You can include this as a “🧪 Work Done” or “🔧 Project Workflow” section:
-
----
 
 ````markdown
 ## 🔧 Work Done
@@ -90,16 +85,6 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 * Added `requirements.txt` for deployment
 * Uploaded to GitHub and deployed on Streamlit Cloud
 
----
-
-✅ **Project Completed End-to-End**: From raw data → to model → to live app.
-
-```
-
----
-
-Let me know if you want this written in a simpler/visual way or want me to directly integrate it into your `README.md`.
-```
 ---
 
 ## 👩‍💻 Author
